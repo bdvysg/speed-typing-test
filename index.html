@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed typing test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Speed typing test</h1>
+    <div class="wordsTitle">
+        <h3 id="previousWordTitle">Previous word</h3>
+        <h3 id="currentWordTitle">Current word</h3>
+        <h3 id="nextWordTitle">Next word</h3>
+    </div>
+    <div class="words">
+        <h2 id="previousWord"></h2>
+        <h2 id="currentWord"></h2> 
+        <h2 id="nextWord"></h2>
+    </div>
+    <div id="timeAndEnterField">
+        <h2 id="timeCounter"></h2>
+        <input type="text", id="inputField", onkeyup="main(event.key)">
+    </div>
+    <input type="button", id="button", onclick="reload()" value="Reload">
+    <script src="app.js"></script>
+</body>
+</html>
