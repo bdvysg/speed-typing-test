@@ -49,3 +49,11 @@ display: inline-block;
 margin-top: 0;
 }
 
+#wordsCount, #charCount{
+    font-size: 30px;
+}
+
+#wordsCount{
+    margin-top: 50px;
+}
+

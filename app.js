@@ -7,11 +7,12 @@ const currentWord = document.getElementById("currentWord")
 const nextWord = document.getElementById("nextWord")
 const previousWord = document.getElementById("previousWord")
 const button = document.getElementById("button")
+const totalWords = document.getElementById("wordsCount")
+const totalChar = document.getElementById("charCount")
+let wordsCount = 0
+let charCount = 0 
 
 inputField.value  = ""
-currentWord.innerHTML = getRandomWord();
-nextWord.innerHTML = getRandomWord();
-timeCount(60)
 
 function getRandomWord(){
     return words[Math.floor(Math.random()*words.length)]
@@ -32,11 +33,16 @@ function main(key){
 }
 
 function confirmWord(){
+    wordsCount++
+    charCount = charCount + currentWord.innerHTML.length
+    totalWords.innerHTML = "Total words: " + wordsCount
+    totalChar.innerHTML = "Total char: " + charCount
     inputField.value  = ""
     previousWord.innerHTML = currentWord.innerHTML
     currentWord.innerHTML = nextWord.innerHTML
     nextWord.innerHTML = getRandomWord()
     currentWord.style.color = "black"
+    
 }
 
 function paintGreenWord(){
@@ -72,8 +78,13 @@ function timeCount(i){
     }, 1000) 
 }
 
-function reload(){
-    location.reload()
+function start(){
+    currentWord.innerHTML = getRandomWord()
+    nextWord.innerHTML = getRandomWord()
+    previousWord.innerHTML = ""
+    button.value = "Restart"
+    wordsCount = 0
+    charCount = 0
 }
 
 
