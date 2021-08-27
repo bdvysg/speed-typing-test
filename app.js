@@ -11,6 +11,8 @@ const totalWords = document.getElementById("wordsCount")
 const totalChar = document.getElementById("charCount")
 let wordsCount = 0
 let charCount = 0 
+times = []
+totalTime = 0
 
 inputField.value  = ""
 
@@ -33,10 +35,17 @@ function main(key){
 }
 
 function confirmWord(){
+    times[1] = new Date().getTime()
+    totalTime = totalTime + (times[1] - times[0])
+    document.getElementById("charPerSec").innerHTML = "Chars per second: " + ((charCount * 60000) / totalTime).toFixed(2)
+    times[0] = times[1]
+    times[1] = 0
+
     wordsCount++
     charCount = charCount + currentWord.innerHTML.length
     totalWords.innerHTML = "Total words: " + wordsCount
     totalChar.innerHTML = "Total char: " + charCount
+
     inputField.value  = ""
     previousWord.innerHTML = currentWord.innerHTML
     currentWord.innerHTML = nextWord.innerHTML
@@ -79,6 +88,7 @@ function timeCount(i){
 }
 
 function start(){
+    times[0] = new Date().getTime()
     currentWord.innerHTML = getRandomWord()
     nextWord.innerHTML = getRandomWord()
     previousWord.innerHTML = ""
