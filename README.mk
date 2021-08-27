@@ -1,1 +1,0 @@
-#Very simple typing test 
