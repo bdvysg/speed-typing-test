@@ -95,6 +95,12 @@ function start(){
     button.value = "Restart"
     wordsCount = 0
     charCount = 0
+    totalWords.innerHTML = "Total words: "
+    totalChar.innerHTML = "Total char: "
+    document.getElementById("charPerSec").innerHTML = "Chars per second: "
+    inputField.value  = ""
+    currentWord.style.color = "black"
+
 }
 
 
